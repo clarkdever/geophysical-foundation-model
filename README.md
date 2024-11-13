@@ -60,6 +60,32 @@ The backbone of this model was trained using 3D seismic data from the Patch the 
 
 ## How to Get Started with the Model
 
+### Setup Requirements
+
+#### System Requirements
+- Python 3.8 or higher
+- CUDA-capable GPU recommended (6GB+ VRAM)
+- 8GB+ RAM
+- 10GB+ free disk space
+
+#### Environment Setup
+```bash
+# Create and activate conda environment
+conda create -n gfm python=3.8
+conda activate gfm
+
+# Install required packages
+pip install jupyter
+pip install huggingface_hub timm scikit-image
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
+pip install pandas numpy matplotlib
+
+# Clone repository and set up notebook
+git clone https://github.com/thinkonward/geophysical-foundation-model.git
+cd geophysical-foundation-model
+jupyter notebook
+```
+
 You can load the model using:
 
 ```python
@@ -77,6 +103,19 @@ Once the mode architecture has been defined, you can use `.from_pretrained()` to
 ```python
 model = ElasticViTMAE.from_pretrained("thinkonward/geophysical-foundation-model")
 ```
+### Troubleshooting
+1. CUDA/GPU Issues:
+   - Ensure NVIDIA drivers are up to date
+   - Try CPU-only installation if GPU unavailable
+
+2. Import Errors:
+   - Verify all packages installed in same environment
+   - Check Python version compatibility
+
+3. Access Issues:
+   - Ensure HuggingFace account created
+   - Request model access before starting
+   - Generate and save access token
 
 ## Training Details
 
